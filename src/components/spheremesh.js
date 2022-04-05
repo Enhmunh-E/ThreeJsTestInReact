@@ -11,25 +11,29 @@ export const Sphere = ({
   const [firstOut, setFirstOut] = React.useState(false);
   return (
     <mesh
-      onPointerEnter={(e) => {
-        setMouseOn(true);
-        //   setMousePosition(null);
-        setMousePosition({
-          x: e.clientX,
-          y: e.clientY,
-        });
-      }}
-      onPointerOut={() => {
-        setMouseOn(false);
-        if (firstOut) setMousePosition(null);
-        else setFirstOut(true);
-        console.log("onPointerOut");
-      }}
+      // onPointerEnter={(e) => {
+      //   setMouseOn(true);
+      //   //   setMousePosition(null);
+      //   setMousePosition({
+      //     x: e.clientX,
+      //     y: e.clientY,
+      //   });
+      // }}
+      // onPointerOut={() => {
+      //   setMouseOn(false);
+      //   if (firstOut) setMousePosition(null);
+      //   else setFirstOut(true);
+      //   console.log("onPointerOut");
+      // }}
       onClick={(e) => {
-        setMousePosition({
-          x: e.clientX,
-          y: e.clientY,
-        });
+        if (mousePosition == null) {
+          setMousePosition({
+            x: e.clientX,
+            y: e.clientY,
+          });
+        } else {
+          setMousePosition(null);
+        }
       }}
       castShadow
       position={position}

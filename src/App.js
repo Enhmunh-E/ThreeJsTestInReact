@@ -18,7 +18,7 @@ const App = () => {
     let a = [];
     let colors = ["red", "orange", "yellow", "green", "blue", "purple", "pink"];
     for (
-      let level = 0, z = 0, howmany = 8, multiplier = 0.5;
+      let level = 0, z = 0, howmany = 1, multiplier = 0.5;
       level < 40;
       level++, howmany += 0.5
     ) {
@@ -26,7 +26,7 @@ const App = () => {
       for (
         let i = 0, degree = 0;
         i < howmany;
-        i++, multiplier += 0.01, degree += (Math.PI * 2) / howmany
+        i++, multiplier += 0.001, degree += (Math.PI * 2) / howmany
       ) {
         a.push({
           x: Math.sin(degree) * 10 * multiplier,
@@ -34,7 +34,7 @@ const App = () => {
           z: z,
           color: color,
         });
-        z += 0.25;
+        z += 10;
       }
     }
     setArr(a);
@@ -65,7 +65,7 @@ const App = () => {
               mousePosition={position}
               key={index}
               index={index}
-              args={[1, 64, 64]}
+              args={[0.5, 64, 64]}
               position={[item.x, item.y, item.z]}
               color={item.color}
             />
@@ -80,24 +80,18 @@ const App = () => {
 
 export default App;
 
-{
-  /* <pointLight position={[-10, 0, -20]} intensity={0.5} /> */
-}
-{
-  /* <pointLight position={[0, -10, 0]} intensity={0.5} /> */
-}
-{
-  /* <pointLight position={[0, -10, 0]} intensity={1.5} /> */
-}
-{
-  /* <mesh>
+/* <pointLight position={[-10, 0, -20]} intensity={0.5} /> */
+
+/* <pointLight position={[0, -10, 0]} intensity={0.5} /> */
+
+/* <pointLight position={[0, -10, 0]} intensity={1.5} /> */
+
+/* <mesh>
           <sphereBufferGeometry attach="geometry" args={[1, 64, 64]} />
           <meshStandardMaterial attach="material" color="white" />
         </mesh> */
-}
 
-{
-  /* <SpinningMesh position={[0, 1, 0]} args={[1, 1, 1]} color="cyan" />
+/* <SpinningMesh position={[0, 1, 0]} args={[1, 1, 1]} color="cyan" />
         <SpinningMesh position={[-2, 1, -5]} args={[1, 1, 1]} color="black" />
         <SpinningMesh position={[5, 1, -2]} args={[1, 1, 1]} color="white" />
         <Text />
@@ -111,4 +105,3 @@ export default App;
             <shadowMaterial attach="material" opacity={0.5} />
           </mesh>
         </group> */
-}
