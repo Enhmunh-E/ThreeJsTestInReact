@@ -20,6 +20,12 @@ const Camera = (props) => {
 };
 const CanvasComp = ({ cameraPosition }) => {
   const [arr, setArr] = useState([]);
+  useThree(({ camera }) => {
+    camera.addEventListener("change", (o) => {
+      console.log(o);
+    });
+    camera.rotation.set(0, 0, 0);
+  });
   const arrConstructor = () => {
     let a = [];
     let colors = ["red", "orange", "yellow", "green", "blue", "purple", "pink"];
@@ -33,14 +39,10 @@ const CanvasComp = ({ cameraPosition }) => {
           x: Math.sin(j) * radius,
           y: Math.cos(j) * radius,
           z: z,
-          color: "#37383a",
+          color: colors[level % colors.length],
         });
-        z -= dist * 3;
+        z -= dist * 2;
       }
-      // dist = (Math.Pi * 2) / howmany;
-      // if (dist >= 1 / howmany) {
-      //   dist -= 0.1;
-      // }
     }
     setArr(a);
   };
@@ -49,6 +51,7 @@ const CanvasComp = ({ cameraPosition }) => {
   }, []);
   return (
     <>
+      <ambientLight intensity={1} />
       {arr.map((item, index) => {
         return (
           <Sphere
@@ -76,7 +79,6 @@ export const FirstPage = () => {
     <>
       <ScrollComp onScroll={onScroll} />
       <Canvas>
-        <ambientLight intensity={1} />
         <Camera position={[0, 0, 200 - scroll / 5]} far={64} />
         <CanvasComp cameraPosition={200 - scroll / 5} />
       </Canvas>
