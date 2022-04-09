@@ -5,6 +5,7 @@ export const Sphere = ({
   index,
   color,
   setMousePosition,
+  visible,
   mousePosition,
 }) => {
   const [mouseOn, setMouseOn] = React.useState(false);
@@ -25,17 +26,18 @@ export const Sphere = ({
       //   else setFirstOut(true);
       //   console.log("onPointerOut");
       // }}
-      onClick={(e) => {
-        if (mousePosition == null) {
-          setMousePosition({
-            x: e.clientX,
-            y: e.clientY,
-          });
-        } else {
-          setMousePosition(null);
-        }
-      }}
+      // onClick={(e) => {
+      //   if (mousePosition == null) {
+      //     setMousePosition({
+      //       x: e.clientX,
+      //       y: e.clientY,
+      //     });
+      //   } else {
+      //     setMousePosition(null);
+      //   }
+      // }}
       castShadow
+      visible={visible}
       position={position}
     >
       {/* <circleBufferGeometry attach="geometry" args={args} /> */}

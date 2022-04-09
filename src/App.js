@@ -58,6 +58,7 @@ const App = () => {
       )}
       <Canvas shadows camera={{ position: [-5, 2, 10], fov: 60 }}>
         <ambientLight intensity={1} />
+        {/* <primitive object={new THREE.AxesHelper(10)} /> */}
         {arr.map((item, index) => {
           return (
             <Sphere
@@ -80,28 +81,96 @@ const App = () => {
 
 export default App;
 
-/* <pointLight position={[-10, 0, -20]} intensity={0.5} /> */
+// /* <pointLight position={[-10, 0, -20]} intensity={0.5} /> */
 
-/* <pointLight position={[0, -10, 0]} intensity={0.5} /> */
+// /* <pointLight position={[0, -10, 0]} intensity={0.5} /> */
 
-/* <pointLight position={[0, -10, 0]} intensity={1.5} /> */
+// /* <pointLight position={[0, -10, 0]} intensity={1.5} /> */
 
-/* <mesh>
-          <sphereBufferGeometry attach="geometry" args={[1, 64, 64]} />
-          <meshStandardMaterial attach="material" color="white" />
-        </mesh> */
+// /* <mesh>
+//           <sphereBufferGeometry attach="geometry" args={[1, 64, 64]} />
+//           <meshStandardMaterial attach="material" color="white" />
+//         </mesh> */
 
-/* <SpinningMesh position={[0, 1, 0]} args={[1, 1, 1]} color="cyan" />
-        <SpinningMesh position={[-2, 1, -5]} args={[1, 1, 1]} color="black" />
-        <SpinningMesh position={[5, 1, -2]} args={[1, 1, 1]} color="white" />
-        <Text />
-        <group>
-          <mesh
-            receiveShadow
-            rotation={[-Math.PI / 2, 0, 0]}
-            position={[0, -3, 0]}
-          >
-            <planeBufferGeometry attach="geometry" args={[100, 100]} />
-            <shadowMaterial attach="material" opacity={0.5} />
-          </mesh>
-        </group> */
+// /* <SpinningMesh position={[0, 1, 0]} args={[1, 1, 1]} color="cyan" />
+//         <SpinningMesh position={[-2, 1, -5]} args={[1, 1, 1]} color="black" />
+//         <SpinningMesh position={[5, 1, -2]} args={[1, 1, 1]} color="white" />
+//         <Text />
+//         <group>
+//           <mesh
+//             receiveShadow
+//             rotation={[-Math.PI / 2, 0, 0]}
+//             position={[0, -3, 0]}
+//           >
+//             <planeBufferGeometry attach="geometry" args={[100, 100]} />
+//             <shadowMaterial attach="material" opacity={0.5} />
+//           </mesh>
+//         </group> */
+// import * as THREE from "three";
+// import React, { useRef, useState } from "react";
+// import { Canvas, useFrame } from "@react-three/fiber";
+
+// function Box1(props) {
+//   const mesh = useRef(null);
+//   const [hovered, setHover] = useState(false);
+//   useFrame(
+//     (state) => (mesh.current.position.y = Math.sin(state.clock.elapsedTime))
+//   );
+//   return (
+//     <mesh
+//       {...props}
+//       ref={mesh}
+//       onClick={(e) => props.setActive(!props.active)}
+//       onPointerOver={(e) => setHover(true)}
+//       onPointerOut={(e) => setHover(false)}
+//     >
+//       <boxBufferGeometry />
+//       <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
+//     </mesh>
+//   );
+// }
+
+// function Box2(props) {
+//   const mesh = useRef(null);
+//   const [hovered, setHover] = useState(false);
+//   useFrame(
+//     (state) => (mesh.current.position.y = Math.sin(state.clock.elapsedTime))
+//   );
+//   return (
+//     <group {...props}>
+//       <mesh
+//         {...props}
+//         ref={mesh}
+//         onClick={(e) => props.setActive(!props.active)}
+//         onPointerOver={(e) => setHover(true)}
+//         onPointerOut={(e) => setHover(false)}
+//       >
+//         <boxBufferGeometry />
+//         <meshStandardMaterial color={hovered ? "green" : "blue"} />
+//       </mesh>
+//     </group>
+//   );
+// }
+
+// function Switcher() {
+//   const [active, setActive] = useState(false);
+//   return (
+//     <>
+//       {active && (
+//         <Box1 active={active} setActive={setActive} position={[-0.5, 0, 0]} />
+//       )}
+//       {!active && (
+//         <Box2 active={active} setActive={setActive} position={[0.25, 0, 0]} />
+//       )}
+//     </>
+//   );
+// }
+
+// export default function App() {
+//   return (
+//     <Canvas orthographic camera={{ zoom: 100 }}>
+//       <ambientLight />
+//       <Switcher />
+//     </Canvas>
+//   );
+// }
