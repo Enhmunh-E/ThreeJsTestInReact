@@ -17,8 +17,8 @@ const CanvasComp = () => {
     let a = [];
     let colors = ["red", "orange", "yellow", "green", "blue", "purple", "pink"];
     let degree = 0;
-    let j = 16;
-    let radiusMult = 5;
+    let j = 1;
+    let radiusMult = 1;
     let mult = 1.1;
     let z = 0;
     let zMult = 1;
@@ -37,14 +37,14 @@ const CanvasComp = () => {
         if (j % 5 == 0) mult -= 0.01;
         degree = 0;
         j += 1;
-        zMult *= 0.95;
-        // z--;
+        zMult *= -1;
       } else {
         z += zMult;
       }
     }
     setArr(a);
   };
+
   useThree(({ camera }) => {
     camera.rotation.set(Math.PI / 2, 0, 0);
   });

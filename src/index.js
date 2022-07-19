@@ -6,6 +6,9 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FirstPage from "./pages/1";
 import SecondPage from "./pages/2";
+import Calculus from "./pages/calculus";
+import Fourthpage from "./pages/4";
+import Nest from "./pages/nest";
 const rootElement = document.getElementById("root");
 const root = ReactDOMClient.createRoot(rootElement);
 root.render(
@@ -14,6 +17,9 @@ root.render(
       <Route path="/" element={<App />} />
       <Route path="/1" element={<FirstPage />} />
       <Route path="/2" element={<SecondPage />} />
+      <Route path="/4" element={<Fourthpage />} />
+      <Route path="/nest" element={<Nest />} />
+      <Route path="/calculus" element={<Calculus />} />
     </Routes>
   </BrowserRouter>
 );

@@ -12,20 +12,13 @@ export const Sphere = ({
   const [firstOut, setFirstOut] = React.useState(false);
   return (
     <mesh
-      // onPointerEnter={(e) => {
-      //   setMouseOn(true);
-      //   //   setMousePosition(null);
-      //   setMousePosition({
-      //     x: e.clientX,
-      //     y: e.clientY,
-      //   });
-      // }}
-      // onPointerOut={() => {
-      //   setMouseOn(false);
-      //   if (firstOut) setMousePosition(null);
-      //   else setFirstOut(true);
-      //   console.log("onPointerOut");
-      // }}
+      style={{ zIndex: position[2] }}
+      onPointerEnter={(e) => {
+        setMouseOn(true);
+      }}
+      onPointerOut={() => {
+        setMouseOn(false);
+      }}
       // onClick={(e) => {
       //   if (mousePosition == null) {
       //     setMousePosition({

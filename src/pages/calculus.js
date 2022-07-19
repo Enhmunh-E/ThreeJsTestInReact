@@ -28,22 +28,34 @@ const CanvasComp = ({ cameraPosition }) => {
   });
   const arrConstructor = () => {
     let a = [];
-    let colors = ["red", "orange", "yellow", "green", "blue", "purple", "pink"];
-    let howmany = 64;
-    let radius = 32;
-    let z = 100;
-    let dist = 2 / howmany;
-    for (let level = 0; level < 20; level++) {
-      for (let i = 0, j = 0; i < howmany; i++, j += (Math.PI * 2) / howmany) {
-        a.push({
-          x: Math.sin(j) * radius,
-          y: Math.cos(j) * radius,
-          z: z,
-          color: colors[level % colors.length],
-        });
-        z -= dist * 2;
-      }
+    let z = 0;
+    for (let i = 0; i <= Math.PI * 2 * 4; i += Math.PI / 12) {
+      a.push({
+        x: Math.sin(i) * 2 * i,
+        y: Math.cos(i) * 2 * i,
+        z: z,
+        color: "#37383a",
+      });
+      z += 10;
+      // i ertesen
+      // i*3 urttai
     }
+    // let colors = ["red", "orange", "yellow", "green", "blue", "purple", "pink"];
+    // let howmany = 64;
+    // let radius = 32;
+    // let z = 100;
+    // let dist = 2 / howmany;
+    // for (let level = 0; level < 20; level++) {
+    //   for (let i = 0, j = 0; i < howmany; i++, j += (Math.PI * 2) / howmany) {
+    //     a.push({
+    //       x: Math.sin(j) * radius,
+    //       y: Math.cos(j) * radius,
+    //       z: z,
+    //       color: colors[level % colors.length],
+    //     });
+    //     z -= dist * 2;
+    //   }
+    // }
     setArr(a);
   };
   useEffect(() => {
@@ -69,7 +81,7 @@ const CanvasComp = ({ cameraPosition }) => {
 };
 
 // camera={{ position: [0, 0, 170], fov: 75 }}
-export const FirstPage = () => {
+export const Calculus = () => {
   const [scroll, setScroll] = useState(0);
   const onScroll = (e) => {
     // console.log(e.target.scrollTop);
@@ -79,10 +91,10 @@ export const FirstPage = () => {
     <>
       <ScrollComp onScroll={onScroll} />
       <Canvas>
-        <Camera position={[0, 0, 200 - scroll / 5]} far={64} />
-        <CanvasComp cameraPosition={200 - scroll / 5} />
+        <Camera position={[0, 0, 300 - scroll / 5]} far={64} />
+        <CanvasComp cameraPosition={300 - scroll / 5} />
       </Canvas>
     </>
   );
 };
-export default FirstPage;
+export default Calculus;
